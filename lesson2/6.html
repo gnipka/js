@@ -45,17 +45,19 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
      * @param {string} one - слово для чисел, заканчивающихся на 1
      * @param {string} two - слово для чисел, заканчивающихся на 2-4
      * @param {string} two - слово для чисел, заканчивающихся на 5-9
+     * @return {string} слово в нужном склонении
     */
     function declinationOfNumber(count, one, two, five) {
-      const remain = count % 10;
+      const remain100 = Math.abs(count) % 100;
+      const remain10 = remain100 % 10;
 
-      if (remain === 1) {
-        return one;
-      }
-      else if (remain < 5 && remain !== 0) {
+      if (remain100 >= 5 && remain100 <= 20) {
+        return five;
+      } else if (remain10 > 1 && remain10 < 5) {
         return two;
-      }
-      else {
+      } else if (remain10 === 1) {
+        return one;
+      } else {
         return five;
       }
     }
