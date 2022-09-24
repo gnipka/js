@@ -23,11 +23,12 @@
 -->
   <script>
     "use strict";
-    let c = prompt("Введите температуру в градусах Цельсия");
 
-    if (!isNaN(c)) {
-      let f = (9 / 5) * c + 32;
-      alert(`Цельсий: ${Number(c).toFixed(2)}, Фаренгейт: ${f.toFixed(2)}`);
+    let tempC = prompt("Введите температуру в градусах Цельсия");
+
+    if (!Number.isNaN(c)) {
+      let tempF = (9 / 5) * c + 32;
+      alert(`Цельсий: ${Number(tempC).toFixed(2)}, Фаренгейт: ${tempF.toFixed(2)}`);
     }
     else {
       alert("Вы ввели некорректное число!");
