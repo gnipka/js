@@ -31,11 +31,11 @@
     "use strict";
 
     let arr = [];
-    let number = prompt("Введите число");
+    let number = +prompt("Введите число");
 
 
     for (let i = 0; i < 3; i++) {
-      arr[i] = Math.floor(number / 10 ** (i)) % 10;
+      arr[i] = Math.floor(number / 10 ** i) % 10;
     }
 
     alert(`В числе ${number} количество сотен: ${arr[2]}, десятков: ${arr[1]}, единиц: ${arr[0]}`);
