@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
@@ -29,10 +31,77 @@ Infinity делать не нужно, однако, в случае если б
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    console.log(mathOperation(5, 3, "+")); // 8
+    console.log(mathOperation(5, 3, "-")); // 2
+    console.log(mathOperation(5, 3, "*")); // 15
+    console.log(mathOperation(5, 3, "/")); // 1.6666666666666667
+    console.log(mathOperation(5, 3, "*:)")); // NaN
+
+    /**
+    * Выполнение операций с числами
+    * @param {number} a - первое число
+    * @param {number} b - второе число
+    * @param {string} sign - знак операции
+    * @returns {number} результат операции
+    */
+    function mathOperation(a, b, sign) {
+      switch (sign) {
+        case "+":
+          return sum(a, b);
+        case "-":
+          return diff(a, b);
+        case "*":
+          return mult(a, b);
+        case "/":
+          return div(a, b);
+        default:
+          return NaN;
+      }
+    }
+
+    /**
+    * Сложение двух чисел
+    * @param {number} a - первое число
+    * @param {number} b - второе число
+    * @returns {number} сумма двух чисел
+    */
+    function sum(a, b) {
+      return a + b;
+    }
+
+    /**
+     * Разность двух чисел
+     * @param {number} a - первое число
+     * @param {number} b - второе число
+     * @returns {number} разность двух чисел
+    */
+    function diff(a, b) {
+      return Math.abs(a - b);
+    }
+
+    /**
+     * Умножение двух чисел
+     * @param {number} a - первое число
+     * @param {number} b - второе число
+     * @returns {number} произведение двух чисел
+    */
+    function mult(a, b) {
+      return a * b;
+    }
+
+    /**
+     * Деление двух чисел
+     * @param {number} a - первое число
+     * @param {number} b - второе число
+     * @returns {number} частное двух чисел
+    */
+    function div(a, b) {
+      return a / b;
+    }
+  </script>
 </body>
+
 </html>
