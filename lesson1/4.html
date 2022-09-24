@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -25,10 +27,21 @@
 
 Уточнение: пользователь всегда вводит корректное положительное целое число.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
+
+    let arr = [];
+    let number = prompt("Введите число");
+
+
+    for (let i = 0; i < 3; i++) {
+      arr[i] = Math.floor(number / 10 ** (i)) % 10;
+    }
+
+    alert(`В числе ${number} количество сотен: ${arr[2]}, десятков: ${arr[1]}, единиц: ${arr[0]}`);
 
   // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+  </script>
 </body>
+
 </html>
