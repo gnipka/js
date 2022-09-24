@@ -45,9 +45,9 @@ Infinity делать не нужно, однако, в случае если б
     * @param {number} a - первое число
     * @param {number} b - второе число
     * @param {string} sign - знак операции
+    * @returns {number} результат операции
     */
     function mathOperation(a, b, sign) {
-
       switch (sign) {
         case "+":
           return sum(a, b);
@@ -66,6 +66,7 @@ Infinity делать не нужно, однако, в случае если б
     * Сложение двух чисел
     * @param {number} a - первое число
     * @param {number} b - второе число
+    * @returns {number} сумма двух чисел
     */
     function sum(a, b) {
       return a + b;
@@ -75,6 +76,7 @@ Infinity делать не нужно, однако, в случае если б
      * Разность двух чисел
      * @param {number} a - первое число
      * @param {number} b - второе число
+     * @returns {number} разность двух чисел
     */
     function diff(a, b) {
       return Math.abs(a - b);
@@ -84,6 +86,7 @@ Infinity делать не нужно, однако, в случае если б
      * Умножение двух чисел
      * @param {number} a - первое число
      * @param {number} b - второе число
+     * @returns {number} произведение двух чисел
     */
     function mult(a, b) {
       return a * b;
@@ -93,6 +96,7 @@ Infinity делать не нужно, однако, в случае если б
      * Деление двух чисел
      * @param {number} a - первое число
      * @param {number} b - второе число
+     * @returns {number} частное двух чисел
     */
     function div(a, b) {
       return a / b;
