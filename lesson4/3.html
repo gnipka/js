@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо создать функцию getDigitsOfNumber, которая принимает целое
@@ -28,10 +30,48 @@
 Обратите внимание на слова "от 0 до 1000", это означает диапазон [0, 999], что
 можно прочитать как "от нуля до 999 включительно".
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    //@param {string} - информация что, что-то пошло не так
+    //@returns {object} - пустой объект
+    function returnWarningAndEmptyObject(warning) {
+      console.info(warning);
+      return {};
+    }
+
+    //@param {string} str - целое положительное число в диапазоне от 0 до 1000
+    //@returns {object} объект с тремя свойствами - units(единицы), dozens(десятки), hundreds(сотни)
+    function getDigitsOfNumber(str) {
+      let number = +str;
+
+      if (Number.isNaN(number)) {
+
+        return returnWarningAndEmptyObject(`${str} - не является числом!`);
+      } else if (!Number.isInteger(number)) {
+
+        return returnWarningAndEmptyObject(`${number} - не является целым числом!`);
+      } else if (number >= 0 && number <= 999) {
+        return {
+          units: Math.floor(number % 10),
+          dozens: Math.floor((number / 10) % 10),
+          hundreds: Math.floor((number / 100) % 10)
+        };
+      } else {
+        return returnWarningAndEmptyObject(`${number} - число должно находиться в диапазоне от 0 до 999 включительно!`);
+      }
+    }
+
+    const digit1 = getDigitsOfNumber(134);
+    console.log(digit1); // {units: 4, dozens: 3, hundreds: 1}
+    const digit2 = getDigitsOfNumber(1000); // 1000 - число должно находится 
+    // в диапазоне от 0 до 999 включительно!
+    console.log(digit2); // {}
+    const digit3 = getDigitsOfNumber('Строка'); // Строка - не является числом!
+    console.log(digit3); // {}
+    const digit4 = getDigitsOfNumber(12.6); // 12.6 - не является целым числом!
+    console.log(digit2); // {}
+  </script>
 </body>
+
 </html>

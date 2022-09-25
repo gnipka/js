@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание, но желательно сделать.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -47,10 +49,85 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    // ES5
+    function PostES5(author, text) {
+      this.author = author;
+      this.text = text;
+      this.date = new Date();
+    }
+
+    PostES5.prototype.edit = function (text) {
+      this.text = text;
+      this.date = new Date();
+    };
+
+    const post5 = new PostES5('Иван', 'Привет');
+    post5.edit('Привет, мир!');
+    console.log(post5);
+    // {author: 'Иван', text: 'Привет, мир!', 
+    // date: Sun Sep 25 2022 19:26:54 GMT+0300 (Москва, стандартное время)}
+
+    function AttachedPostES5(author, text) {
+      PostES5.call(this, author, text);
+      this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+      this.date = new Date();
+    }
+
+    const attachedPost5 = new AttachedPostES5('Мария', 'Привет');
+    attachedPost5.makeTextHighlighted();
+    attachedPost5.edit('Привет, мир!');
+    console.log(attachedPost5);
+    // {author: 'Мария', text: 'Привет, мир!', 
+    // date: Sun Sep 25 2022 19:26:54 GMT+0300 (Москва, стандартное время), 
+    // highlighted: true}
+
+    //ES6
+    class PostES6 {
+      constructor(author, text) {
+        this.author = author;
+        this.text = text;
+        this.date = new Date();
+      }
+
+      edit(text) {
+        this.text = text;
+        this.date = new Date();
+      }
+    }
+
+    const post6 = new PostES6('Петр', 'Hello');
+    post6.edit('Hello, world!');
+    console.log(post6);
+    // {author: 'Петр', text: 'Hello, world!', 
+    // date: Sun Sep 25 2022 19:30:45 GMT+0300 (Москва, стандартное время)}
+
+    class AttachedPostES6 extends PostES6 {
+      highlighted = false;
+
+      makeTextHighlighted() {
+        this.highlighted = true;
+        this.date = new Date();
+      }
+    }
+
+    const attachedPost6 = new AttachedPostES6('Олег', 'Hello');
+    attachedPost6.makeTextHighlighted();
+    attachedPost6.edit('Hello, world!');
+    console.log(attachedPost6);
+    // {author: 'Олег', text: 'Hello, world!',
+    // date: Sun Sep 25 2022 19:30:45 GMT+0300 (Москва, стандартное время),
+    // highlighted: true}
+  </script>
 </body>
+
 </html>
