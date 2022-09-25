@@ -52,11 +52,7 @@
 
     console.log(productsImg); // 3, 10 (id)
 
-    products.sort((a, b) => {
-      if (a.price > b.price) return 1;
-      if (a.price == b.price) return 0;
-      if (a.price < b.price) return -1;
-    })
+    products.sort((a, b) => a.price - b.price);
 
     console.log(products); // 10, 8, 3, 5 (id)
   </script>
