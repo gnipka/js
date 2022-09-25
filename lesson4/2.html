@@ -62,7 +62,7 @@
     PostES5.prototype.edit = function (text) {
       this.text = text;
       this.date = new Date();
-    }
+    };
 
     const post5 = new PostES5('Иван', 'Привет');
     post5.edit('Привет, мир!');
@@ -80,6 +80,7 @@
 
     AttachedPostES5.prototype.makeTextHighlighted = function () {
       this.highlighted = true;
+      this.date = new Date();
     }
 
     const attachedPost5 = new AttachedPostES5('Мария', 'Привет');
@@ -111,13 +112,11 @@
     // date: Sun Sep 25 2022 19:30:45 GMT+0300 (Москва, стандартное время)}
 
     class AttachedPostES6 extends PostES6 {
-      constructor(author, text) {
-        super(author, text);
-        this.highlighted = false;
-      }
+      highlighted = false;
 
       makeTextHighlighted() {
         this.highlighted = true;
+        this.date = new Date();
       }
     }
 
