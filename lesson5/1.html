@@ -44,7 +44,7 @@
      */
     const cardsLink = document.getElementsByClassName('card-link');
 
-    for (let card of cardsLink) {
+    for (const card of cardsLink) {
       card.innerHTML = 'ссылка';
     }
     /*
@@ -65,7 +65,7 @@
     6. Получите элемент с классом "card-title" и выведите его родительский узел
     в консоль.
      */
-    console.log(document.querySelector('.card-title'));
+    console.log(document.querySelector('.card-title').parentNode);
     /*
     7. Создайте тег `p`, запишите внутри него текст "Привет" и добавьте созданный
     тег в начало элемента, который имеет класс "card".
