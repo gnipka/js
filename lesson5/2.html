@@ -39,7 +39,7 @@
 
     items.forEach((item) => {
       item.classList.add('super-dropdown');
-    })
+    });
     /*
     2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он
     присутствует у этого элемента, либо добавить, если такого класса у элемента
@@ -56,7 +56,8 @@
     "dropdown" следующую разметку:
       <a href="#">link</a>
     */
-    document.querySelector('div.dropdown').insertAdjacentHTML('afterend', '<a href="#">link</a>');
+    document.querySelector('div.dropdown').insertAdjacentHTML('afterend',
+      '<a href="#">link</a>');
     /*
     5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
     */
